@@ -1,4 +1,4 @@
-using HealingDivineSelf.Blazor.Components;
+using HealingDivineSelf.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
