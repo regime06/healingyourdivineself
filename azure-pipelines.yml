@@ -1,0 +1,58 @@
+trigger:
+  branches:
+    include:
+    - master
+  # paths:
+  #   include:
+  #   - rel.app.dentalhub/**
+  #   - azure-pipelines.yml
+  #   exclude:
+  #   - rel.api/**
+  #   - azure-pipelines-2.yml
+
+pool:
+  name: 'Default'
+
+variables:
+  buildConfiguration: 'Release'
+
+jobs:
+- job: BuildPackAndPush
+  displayName: BuildPackAndPush
+  steps:
+  - checkout: self
+
+  - task: UseDotNet@2
+    displayName: Install .NET SDK
+    inputs:
+      packageType: 'sdk'
+      version: '10.0.x'
+
+  - task: DotNetCoreCLI@2
+    displayName: DotNetRestore
+    inputs:
+      command: 'restore'
+      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+
+  - task: DotNetCoreCLI@2
+    displayName: DotNetBuild
+    inputs:
+      command: 'build'
+      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+      arguments: '-c $(buildConfiguration) --no-restore'
+
+  - task: DotNetCoreCLI@2
+    displayName: DotNetPublish
+    inputs:
+      command: 'publish'
+      publishWebProjects: false
+      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+      arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory) --no-build'
+      zipAfterPublish: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifacts'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
