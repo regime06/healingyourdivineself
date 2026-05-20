@@ -32,13 +32,13 @@ jobs:
     displayName: DotNetRestore
     inputs:
       command: 'restore'
-      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+      projects: '**/*.csproj'
 
   - task: DotNetCoreCLI@2
     displayName: DotNetBuild
     inputs:
       command: 'build'
-      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+      projects: '**/*.csproj'
       arguments: '-c $(buildConfiguration) --no-restore'
 
   - task: DotNetCoreCLI@2
@@ -46,7 +46,7 @@ jobs:
     inputs:
       command: 'publish'
       publishWebProjects: false
-      projects: 'HealingYourDivineSelf\HealingDivineSelf.csproj'
+      projects: '**/*.csproj'
       arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory) --no-build'
       zipAfterPublish: true
 
