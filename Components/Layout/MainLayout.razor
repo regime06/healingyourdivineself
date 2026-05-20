@@ -1,0 +1,33 @@
+@inherits LayoutComponentBase
+
+<div class="topbar">Awaken Your True Essence: Sign Up for Our FREE 'Healing Your Divine Self' Workshop Today!</div>
+<header class="site-header">
+    <a class="brand" href="/"><img src="@LogoUrl" alt="Nancylita Allan logo" /></a>
+    <input id="menu-toggle" type="checkbox" />
+    <label class="menu-button" for="menu-toggle">☰</label>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/transformative-services">Transformative Services</a>
+        <a href="/healing-programs">Healing Programs</a>
+        <a href="/about-us">About Us</a>
+        <a href="/testimonials">Testimonials</a>
+        <a href="/contact-us">Contact Us</a>
+    </nav>
+</header>
+
+<main>@Body</main>
+
+<footer class="footer">
+    <img src="@FooterLogoUrl" alt="Nancylita Allan logo" />
+    <h2>Healing Your Divine Self | Nancylita Allan</h2>
+    <p>Empowering Your Journey to Wholeness</p>
+    <p>© 2025 Healing Your Divine Self. All Rights Reserved.</p>
+    <p><a href="/terms-and-conditions">Terms &amp; Conditions</a> | <a href="/privacy-policy">Privacy Policy</a></p>
+    <div class="socials"><span>f</span><span>◎</span><span>▶</span><span>in</span></div>
+    <small>Disclaimer: The services, guidance, and information provided through Healing Your Divine Self by Nancylita Allan are intended for personal growth, self-discovery, and spiritual development. They are not a substitute for professional medical, psychological, legal, or financial advice. If you require medical or mental health support, please consult a licensed healthcare professional.</small>
+</footer>
+
+@code {
+    private const string LogoUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/678c86cc01b60132cb148958.png";
+    private const string FooterLogoUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0bab45de7ca14cbc10679.png";
+}

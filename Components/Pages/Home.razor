@@ -1,0 +1,116 @@
+@page "/"
+@page "/home"
+@rendermode InteractiveServer
+<PageTitle>Healing Your Divine Self</PageTitle>
+
+<section class="hero section">
+    <div class="hero-copy">
+        <p class="eyebrow">Chakra and Forensic Healing</p>
+        <h1>Open the Gate to Your Life’s Purpose with Chakra and Forensic Healing—</h1>
+        <h2>Unlock Your True Potential and<br />Step into a Life of Meaning and Fulfillment</h2>
+        <a class="btn" href="https://workshops.healingyourdivineself.com">Join the Free Workshop</a>
+    </div>
+    <div class="hero-card">
+        <img src="@PortraitUrl" alt="Nancylita Allan" />
+        <h2>Nancylita Allan</h2>
+        <p>Founder of Healing Your Divine Self</p>
+        <span>Certified Forensic Healing Practitioner | Energy Healing Therapist | Akashic Record Reader | Magnetic Mind Coach</span>
+    </div>
+</section>
+
+<section class="section about-grid">
+    <div>
+        <h2>Healing Your Divine Self: A Journey of Self-Discovery, Love, and Acceptance</h2>
+        <h3>Have you ever felt trapped by the weight of past wounds, limiting beliefs, or an overwhelming sense of disconnection?</h3>
+        <p>Healing Your Divine Self is the key to breaking free. It’s a transformative journey where you reconnect with your inner essence, release emotional pain, and embrace your authentic self.</p>
+        <p>By cultivating self-love, inner peace, and spiritual growth, you’ll align with your true purpose and unlock the limitless potential that’s always been within you.</p>
+    </div>
+    <blockquote>“Healing is not about fixing what is broken; it’s about reconnecting with the divine essence within you.”</blockquote>
+</section>
+
+<section class="section services">
+    @foreach (var service in Services)
+    {
+        <article class="service-card">
+            <img src="@service.Image" alt="@service.Title" />
+            <h3>@service.Title</h3>
+            <p>@service.Text</p>
+        </article>
+    }
+    <a class="btn outline" href="/transformative-services">Learn More</a>
+</section>
+
+<section class="section journey">
+    <div>
+        <h2>Are You Ready to Open the Gate to Your Life’s Purpose and Heal Your Divine Self?</h2>
+        <p>Step into a transformative journey where you'll reconnect with your inner power and create a life aligned with your highest potential.</p>
+        <h3>By Choosing This Journey, You Will:</h3>
+        <ul>
+            <li>Reconnect with your true essence and divine worthiness.</li>
+            <li>Heal emotional wounds and release limiting beliefs.</li>
+            <li>Discover your purpose and align with your passions.</li>
+            <li>Cultivate self-love, inner peace, and spiritual growth.</li>
+            <li>Manifest a life filled with love, abundance, and joy.</li>
+        </ul>
+    </div>
+    <img src="@HandsUrl" alt="Healing support" />
+</section>
+
+<section class="workshop section narrow">
+    <h2>Ready to heal and unlock your true potential?</h2>
+    <p>Join our FREE workshop and begin your transformation today!</p>
+    <a class="btn" href="https://workshops.healingyourdivineself.com">Join the Free Workshop</a>
+</section>
+
+<section class="section book">
+    <div>
+        <p class="quote">“Our chakra energy centres are our spiritual connection. Being aware of our energy and mood can help us recognise which energy centre needs clearing and activating.”</p>
+        <h2>Healing Your Divine Self:<br />Opening the Gate to Your Life's Purpose</h2>
+        <a class="btn" href="https://www.amazon.com/">Grab a Copy</a>
+    </div>
+    <img src="@BookUrl" alt="Healing Your Divine Self book" />
+</section>
+
+<section class="section testimonials">
+    <h2>Transformational Journeys</h2>
+    <div class="testimonial-grid">
+        @foreach (var testimonial in Testimonials)
+        {
+            <article>
+                <p>“@testimonial.Text”</p>
+                <strong>@testimonial.Name</strong>
+            </article>
+        }
+    </div>
+    <a class="btn outline" href="/testimonials">See How Others Transformed</a>
+</section>
+
+<section class="final-cta section narrow">
+    <h2>Yes, I'm Ready to Heal and Unlock My True Potential!</h2>
+    <p>I’m ready to align my mind, body, and spirit, release what no longer serves me, and step into my true power to heal myself and others with love.</p>
+    <a class="btn" href="/healing-programs">Check My Healing Programs</a>
+</section>
+
+@code {
+    private const string PortraitUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34c22a0a3a5bdc312a.png";
+    private const string HandsUrl = "https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04ee128f243334ff5a0cf.png";
+    private const string BookUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0520f28f24307ccf5a598.png";
+
+    private record Card(string Title, string Text, string Image);
+    private record Testimonial(string Name, string Text);
+
+    private readonly Card[] Services =
+    [
+        new("Love Reborn Coaching", "Heal past wounds and create deeper connections within yourself and your relationships.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34be5edc6bd73b0be3.png"),
+        new("Manifesting Your Dream Life", "Align your energy with your desires and manifest the life you’ve always envisioned.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34be5edc81483b0be4.png"),
+        new("Forensic Energy Healing", "Release energetic blocks, emotional pain, and limiting beliefs to reveal your true self.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b3428f243d245f59d60.png"),
+        new("Chakra Healing", "Balance your energy centers for peace, harmony, and clarity in all aspects of your life.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0d90021e02c2dc64add30.png")
+    ];
+
+    private readonly Testimonial[] Testimonials =
+    [
+        new("Faye S, Prospect, SA", "I have suffered from muscle tension in my neck and shoulders for many years, causing back pain and discomfort. Nancy has provided real relief, and I can now manage my pain much better."),
+        new("Dennis C, Adelaide, SA", "After surgery for my tongue and throat cancer, I visited Nancy to aid my recovery. Her treatments have improved my body functions and my energy has significantly improved."),
+        new("Tony, Blair Athol, SA", "One morning, I woke with a severe headache. That afternoon, I visited Nancy, and my headache eased immediately. I have since recommended Nancy to all my friends.")
+    ];
+}
