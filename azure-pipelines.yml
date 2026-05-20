@@ -46,7 +46,7 @@ jobs:
     inputs:
       command: 'publish'
       publishWebProjects: false
-      projects: 'HealingYourDivineSelf/HealingDivineSelf.csproj'
+      projects: 'HealingDivineSelf.csproj'
       arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory) --no-build'
       zipAfterPublish: true
 
