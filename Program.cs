@@ -1,6 +1,11 @@
 using HealingDivineSelf.Components;
+using HealingDivineSelf.Services.WorkshopService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddScoped<IWorkshopsService,WorkshopsService>();
+
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
