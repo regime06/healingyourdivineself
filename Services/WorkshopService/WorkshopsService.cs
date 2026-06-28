@@ -17,7 +17,7 @@ namespace HealingDivineSelf.Services.WorkshopService
         {
             using var httpClient = new HttpClient();
 
-            _api = "https://localhost:7201/";
+            //_api = "https://localhost:7201/";
             var uri = $"{_api}FreeWorkShops";
 
             var response = await httpClient.PostAsJsonAsync(uri,workshops);
