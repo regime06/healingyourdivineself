@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/workshops"
 @rendermode InteractiveServer
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
@@ -9,19 +9,19 @@
         <div class="card-shine"></div>
         <div class="soft-orb orb-one"></div>
         <div class="soft-orb orb-two"></div>
-
+@* 
         <div class="logo-section">
             <img src="images/logo.png" alt="Nancylita Allan Logo" class="workshop-logo" />
-        </div>
+        </div> *@
 
         <div class="heading-section">
             <p class="eyebrow">Free Online Event</p>
-            <h1>Join the Free Workshop</h1>
+            @* <h1>Join the Free Workshop</h1> *@
 
-            <div class="divine-title">
+           @*  <div class="divine-title">
                 <span>Healing Your</span>
                 <strong>Divine Self</strong>
-            </div>
+            </div> *@
 
             <p class="subtitle">
                 Reserve your spot today and begin a peaceful journey of healing,
@@ -328,24 +328,52 @@
                            @bind="form.PhoneNumber" />
                 </div>
             </div>
-
-            <button class="register-btn" type="button" @onclick="HandleSubmit">
-                Register Now
+         
+            <button class="register-btn" type="button" @onclick="HandleSubmit" disabled="@isSubmitting">
+                @(isSubmitting ? "Sending..." : "Register Now")
             </button>
+            @if (!string.IsNullOrWhiteSpace(responseMessage))
+            {
+                <div class="response-message @(isSuccess ? "success" : "error")">
+                    @responseMessage
+                </div>
+            }
         </EditForm>
     </section>
 </div>
 
 @code {
-    private UserWorkshop form = new();
-    public string AreaCode { get; set; } = "+63";
-    [Inject] IWorkshopsService workshopsService{ get; set; }
+    private UserWorkshop form = new()
+    {
+        AreaCode = "+63"
+    };
+
+    private string? responseMessage;
+    private bool isSuccess;
+    private bool isSubmitting;
+
+    [Inject] IWorkshopsService workshopsService { get; set; } = default!;
+
     private async Task HandleSubmit()
     {
-        form.Id = Guid.NewGuid();
-        await workshopsService.CreateUserWorkshop(form);
-        Console.WriteLine($"Registered: {form.FirstName} {form.LastName}");
-    }
+        isSubmitting = true;
+        responseMessage = null;
 
-  
+        form.Id = Guid.NewGuid();
+
+        var result = await workshopsService.CreateUserWorkshop(form);
+
+        isSuccess = result.Success;
+        responseMessage = result.Message;
+
+        if (result.Success)
+        {
+            form = new UserWorkshop
+            {
+                AreaCode = "+63"
+            };
+        }
+
+        isSubmitting = false;
+    }
 }

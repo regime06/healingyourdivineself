@@ -13,34 +13,47 @@ namespace HealingDivineSelf.Services.WorkshopService
         {
             this.configuration = configuration;
         }
-        public async Task CreateUserWorkshop(UserWorkshop workshops)
+        public async Task<ApiResponse<UserWorkshop>> CreateUserWorkshop(UserWorkshop workshops)
         {
-            try
-            {
-                using var httpClient = new HttpClient();
-                var uri = $"{_api}FreeWorkShops";
-                var response = await httpClient.PostAsJsonAsync(uri,workshops);
+            using var httpClient = new HttpClient();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+            _api = "https://localhost:7201/";
+            var uri = $"{_api}FreeWorkShops";
+
+            var response = await httpClient.PostAsJsonAsync(uri,workshops);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return new ApiResponse<UserWorkshop>
                 {
-                    return;
-                }
-
-                response.EnsureSuccessStatusCode();
-
-                var result = await response.Content.ReadAsStringAsync();
-
-                // If you need to deserialize:
-                // var dentistData = JsonSerializer.Deserialize<YourDto>(result, new JsonSerializerOptions
-                // {
-                //     PropertyNameCaseInsensitive = true
-                // });
+                    Success = false,
+                    Message = "Something went wrong while sending your request.",
+                    Errors = new List<string> { result }
+                };
             }
-            catch
+
+            var data = JsonSerializer.Deserialize<ApiResponse<UserWorkshop>>(result,new JsonSerializerOptions
             {
-                throw;
-            }
+                PropertyNameCaseInsensitive = true
+            });
+
+            return data ?? new ApiResponse<UserWorkshop>
+            {
+                Success = false,
+                Message = "No response received from server."
+            };
         }
 
+        public class ApiResponse<T>
+        {
+            public string Message { get; set; } = string.Empty;
+            public T? Data { get; set; }
+            public List<string> Errors { get; set; } = new();
+            public bool Success { get; set; }
+        }
     }
+
+
 }

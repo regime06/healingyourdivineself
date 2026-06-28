@@ -1,116 +1,243 @@
-@* @page "/"
-@page "/home" *@
-@rendermode InteractiveServer
-<PageTitle>Healing Your Divine Self</PageTitle>
+@page "/"
 
-<section class="hero section">
-    <div class="hero-copy">
-        <p class="eyebrow">Chakra and Forensic Healing</p>
-        <h1>Open the Gate to Your Life’s Purpose with Chakra and Forensic Healing—</h1>
-        <h2>Unlock Your True Potential and<br />Step into a Life of Meaning and Fulfillment</h2>
-        <a class="btn" href="https://workshops.healingyourdivineself.com">Join the Free Workshop</a>
-    </div>
-    <div class="hero-card">
-        <img src="@PortraitUrl" alt="Nancylita Allan" />
-        <h2>Nancylita Allan</h2>
-        <p>Founder of Healing Your Divine Self</p>
-        <span>Certified Forensic Healing Practitioner | Energy Healing Therapist | Akashic Record Reader | Magnetic Mind Coach</span>
-    </div>
-</section>
+<div class="hds-page">
 
-<section class="section about-grid">
-    <div>
-        <h2>Healing Your Divine Self: A Journey of Self-Discovery, Love, and Acceptance</h2>
-        <h3>Have you ever felt trapped by the weight of past wounds, limiting beliefs, or an overwhelming sense of disconnection?</h3>
-        <p>Healing Your Divine Self is the key to breaking free. It’s a transformative journey where you reconnect with your inner essence, release emotional pain, and embrace your authentic self.</p>
-        <p>By cultivating self-love, inner peace, and spiritual growth, you’ll align with your true purpose and unlock the limitless potential that’s always been within you.</p>
-    </div>
-    <blockquote>“Healing is not about fixing what is broken; it’s about reconnecting with the divine essence within you.”</blockquote>
-</section>
+    <header class="hds-navbar">
+        <a href="#" class="brand">
+            <img src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0bab45de7ca14cbc10679.png"
+                 alt="Healing Your Divine Self Logo"
+                 class="brand-logo" />
 
-<section class="section services">
-    @foreach (var service in Services)
-    {
-        <article class="service-card">
-            <img src="@service.Image" alt="@service.Title" />
-            <h3>@service.Title</h3>
-            <p>@service.Text</p>
-        </article>
-    }
-    <a class="btn outline" href="/transformative-services">Learn More</a>
-</section>
+            <div>
+                <strong>Healing</strong>
+                <span>Your Divine Self</span>
+            </div>
+        </a>
 
-<section class="section journey">
-    <div>
-        <h2>Are You Ready to Open the Gate to Your Life’s Purpose and Heal Your Divine Self?</h2>
-        <p>Step into a transformative journey where you'll reconnect with your inner power and create a life aligned with your highest potential.</p>
-        <h3>By Choosing This Journey, You Will:</h3>
-        <ul>
-            <li>Reconnect with your true essence and divine worthiness.</li>
-            <li>Heal emotional wounds and release limiting beliefs.</li>
-            <li>Discover your purpose and align with your passions.</li>
-            <li>Cultivate self-love, inner peace, and spiritual growth.</li>
-            <li>Manifest a life filled with love, abundance, and joy.</li>
-        </ul>
-    </div>
-    <img src="@HandsUrl" alt="Healing support" />
-</section>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#programs">Programs</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<section class="workshop section narrow">
-    <h2>Ready to heal and unlock your true potential?</h2>
-    <p>Join our FREE workshop and begin your transformation today!</p>
-    <a class="btn" href="https://workshops.healingyourdivineself.com">Join the Free Workshop</a>
-</section>
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04672e8fc702a7e88aa7d.mp4" type="video/mp4" />
+        </video>
 
-<section class="section book">
-    <div>
-        <p class="quote">“Our chakra energy centres are our spiritual connection. Being aware of our energy and mood can help us recognise which energy centre needs clearing and activating.”</p>
-        <h2>Healing Your Divine Self:<br />Opening the Gate to Your Life's Purpose</h2>
-        <a class="btn" href="https://www.amazon.com/">Grab a Copy</a>
-    </div>
-    <img src="@BookUrl" alt="Healing Your Divine Self book" />
-</section>
+        <div class="hero-overlay"></div>
 
-<section class="section testimonials">
-    <h2>Transformational Journeys</h2>
-    <div class="testimonial-grid">
-        @foreach (var testimonial in Testimonials)
-        {
-            <article>
-                <p>“@testimonial.Text”</p>
-                <strong>@testimonial.Name</strong>
-            </article>
-        }
-    </div>
-    <a class="btn outline" href="/testimonials">See How Others Transformed</a>
-</section>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-kicker">Healing • Purpose • Alignment</span>
 
-<section class="final-cta section narrow">
-    <h2>Yes, I'm Ready to Heal and Unlock My True Potential!</h2>
-    <p>I’m ready to align my mind, body, and spirit, release what no longer serves me, and step into my true power to heal myself and others with love.</p>
-    <a class="btn" href="/healing-programs">Check My Healing Programs</a>
-</section>
+                <h1>
+                    Open the Gate to<br />
+                    Your Life’s Purpose<br />
+                    with <em>Chakra</em> and<br />
+                    <em>Forensic Healing</em>
+                </h1>
 
-@code {
-    private const string PortraitUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34c22a0a3a5bdc312a.png";
-    private const string HandsUrl = "https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04ee128f243334ff5a0cf.png";
-    private const string BookUrl = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0520f28f24307ccf5a598.png";
+                <div class="hero-divider">✦</div>
 
-    private record Card(string Title, string Text, string Image);
-    private record Testimonial(string Name, string Text);
+                <p>
+                    Unlock Your True Potential and<br />
+                    Step into a Life of Meaning and Fulfillment
+                </p>
 
-    private readonly Card[] Services =
-    [
-        new("Love Reborn Coaching", "Heal past wounds and create deeper connections within yourself and your relationships.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34be5edc6bd73b0be3.png"),
-        new("Manifesting Your Dream Life", "Align your energy with your desires and manifest the life you’ve always envisioned.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b34be5edc81483b0be4.png"),
-        new("Forensic Energy Healing", "Release energetic blocks, emotional pain, and limiting beliefs to reveal your true self.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a04b3428f243d245f59d60.png"),
-        new("Chakra Healing", "Balance your energy centers for peace, harmony, and clarity in all aspects of your life.", "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https%3A//assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0d90021e02c2dc64add30.png")
-    ];
+                <div class="hero-actions">
+                    <a href="#contact" class="btn primary">Join Free Session</a>
+                    <a href="#services" class="btn ghost">Explore Services</a>
+                </div>
+            </div>
 
-    private readonly Testimonial[] Testimonials =
-    [
-        new("Faye S, Prospect, SA", "I have suffered from muscle tension in my neck and shoulders for many years, causing back pain and discomfort. Nancy has provided real relief, and I can now manage my pain much better."),
-        new("Dennis C, Adelaide, SA", "After surgery for my tongue and throat cancer, I visited Nancy to aid my recovery. Her treatments have improved my body functions and my energy has significantly improved."),
-        new("Tony, Blair Athol, SA", "One morning, I woke with a severe headache. That afternoon, I visited Nancy, and my headache eased immediately. I have since recommended Nancy to all my friends.")
-    ];
-}
+            <div class="hero-side-video">
+                <div class="side-video-label">
+                    <span>Watch</span>
+                    <strong>Healing Preview</strong>
+                </div>
+
+                <video autoplay muted loop playsinline controls preload="metadata">
+                    <source src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/6a415b04c93b89d83f99124c.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <div class="book-image">
+            <img src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0520f28f24307ccf5a598.png" alt="Healing Your Divine Self Book" />
+        </div>
+
+        <div class="book-content">
+            <span class="quote-mark">“</span>
+            <p>
+                Our chakra energy centres are our spiritual connection.
+                <em> Being aware of our energy and mood can help us recognise which energy centre needs clearing and activating for our whole being to fully healthily function.</em>
+            </p>
+
+            <small>
+                Excerpt from <strong>Healing Your Divine Self: Opening the Gate to Your Life’s Purpose</strong>
+            </small>
+
+            <a href="https://www.amazon.com/Healing-Your-Divine-Self-Opening/dp/1638129401"
+               class="btn primary"
+               target="_blank"
+               rel="noopener noreferrer">
+                Grab a Copy
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <span class="section-label">Transformative Services</span>
+        <h2>Support for Mind, Body, and Spirit</h2>
+
+        <div class="card-grid">
+            <div class="info-card">
+                <div class="icon">♆</div>
+                <h3>Forensic Energy Healing</h3>
+                <p>Uncover energetic blocks, emotional pain, and subconscious patterns that may be holding you back.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">☯</div>
+                <h3>Chakra Healing</h3>
+                <p>Balance your energy centers to support clarity, harmony, emotional balance, and spiritual connection.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">♡</div>
+                <h3>Love Reborn Coaching</h3>
+                <p>Heal relationship wounds, rebuild self-worth, and create healthier connections from within.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">✧</div>
+                <h3>Manifesting Your Dream Life</h3>
+                <p>Release limiting beliefs and align your thoughts, emotions, and energy with the life you desire.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="program-section">
+        <div>
+            <span class="section-label">Healing Programs</span>
+            <h2>Personalized programs for deeper transformation.</h2>
+            <p>
+                Designed for those ready to release old patterns, restore balance,
+                and reconnect with their highest self.
+            </p>
+
+            <ul class="check-list">
+                <li>Release stress, emotional wounds, and limiting beliefs</li>
+                <li>Restore balance in the body, mind, and spirit</li>
+                <li>Clear energetic blockages and create space for growth</li>
+                <li>Strengthen self-love, purpose, and inner peace</li>
+            </ul>
+
+            <a href="#contact" class="btn primary">Start Your Journey</a>
+        </div>
+
+        <div class="youtube-card">
+            <iframe src="https://www.youtube.com/embed/lPRcp8c8bOY?autoplay=1&loop=1&playlist=lPRcp8c8bOY&controls=0&rel=0&modestbranding=1&showinfo=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-photo">
+            <img src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67b809b7162c153b26357dd2.jpeg" alt="Nancylita Allan" />
+        </div>
+
+        <div class="about-content">
+            <span class="section-label">About Nancy</span>
+            <h2>Nancylita Allan</h2>
+            <h3>Founder of Healing Your Divine Self</h3>
+            <p>
+                Nancy is a Certified Forensic Healing Practitioner, Energy Healing Therapist,
+                Akashic Record Reader, and Magnetic Mind Coach. Her work helps clients reconnect
+                with their higher self, release limitations, and move toward joy, purpose, and fulfillment.
+            </p>
+        </div>
+
+        <blockquote>
+            “Healing is not about fixing what is broken; it’s about reconnecting with the divine essence within you.”
+        </blockquote>
+    </section>
+
+    <section id="testimonials" class="testimonial-section">
+        <span class="section-label">Testimonials</span>
+        <h2>Transformational journeys.</h2>
+
+        <div class="testimonial-layout">
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“Nancy helped bring relief from long-time neck, shoulder, and back discomfort.”</p>
+                    <strong>— Faye S.</strong>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“Her treatments helped improve my energy, recovery, and overall wellbeing.”</p>
+                    <strong>— Dennis C.</strong>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“After one session, my severe headache eased. I recommended Nancy to my friends.”</p>
+                    <strong>— Tony</strong>
+                </div>
+            </div>
+
+            <div class="youtube-card small">
+                <iframe src="https://www.youtube.com/embed/lPRcp8c8bOY"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="see-more-wrap">
+            <a href="/testimonials" class="btn primary">See More Testimonials</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div>
+            <span class="section-label">Start Your Healing Journey</span>
+            <h2>Ready to heal and unlock your true potential?</h2>
+            <p>
+                Send us a message and we’ll get back to you as soon as possible.
+            </p>
+        </div>
+
+        <Workshops></Workshops>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <a href="#" class="brand">
+                <img src="https://assets.cdn.filesafe.space/AQFEzHZUtMAPcewKpm2Q/media/67a0bab45de7ca14cbc10679.png"
+                     alt="Healing Your Divine Self Logo"
+                     class="brand-logo" />
+            </a>
+
+            <div>
+                <h3>Healing Your Divine Self</h3>
+                <p>Empowering your journey to wholeness.</p>
+            </div>
+        </div>
+
+        <small>© 2025 Healing Your Divine Self. All Rights Reserved.</small>
+    </footer>
+
+</div>
