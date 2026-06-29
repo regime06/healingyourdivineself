@@ -16,10 +16,10 @@ body {
     align-items: center;
     justify-content: center;
     font-family: Inter, "Segoe UI", Arial, sans-serif;
-    background: radial-gradient(circle at 20% 10%, rgba(255, 232, 177, 0.32), transparent 30%), linear-gradient(135deg, rgba(3, 33, 37, 0.86), rgba(101, 121, 55, 0.68)), url('/images/workshop-bg.jpg') center / cover no-repeat;
-    border-radius: 42px;
-    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
-    overflow: hidden;
+    /*background: radial-gradient(circle at 20% 10%, rgba(255, 232, 177, 0.32), transparent 30%), linear-gradient(135deg, rgba(3, 33, 37, 0.86), rgba(101, 121, 55, 0.68)), url('/images/workshop-bg.jpg') center / cover no-repeat;*/
+    /*border-radius: 42px;*/
+  /*  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
+    overflow: hidden;*/
 }
 
 .registration-card {
