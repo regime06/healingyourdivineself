@@ -789,6 +789,8 @@ p {
 .youtube-card {
     position: relative;
     overflow: hidden;
+    width:90%;
+    height:90%;
     border-radius: 24px;
     background: #132c29;
     box-shadow: 0 24px 60px rgba(32, 54, 42, .25);
