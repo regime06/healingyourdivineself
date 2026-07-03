@@ -328,8 +328,10 @@
                            @bind="form.PhoneNumber" />
                 </div>
             </div>
-         
-            <button class="register-btn" type="button" @onclick="HandleSubmit" disabled="@isSubmitting">
+            <button class="register-btn"
+                    type="button"
+                    @onclick="HandleSubmit"
+                    disabled="@isSubmitting">
                 @(isSubmitting ? "Sending..." : "Register Now")
             </button>
             @if (!string.IsNullOrWhiteSpace(responseMessage))
@@ -357,6 +359,7 @@
     private async Task HandleSubmit()
     {
         isSubmitting = true;
+        StateHasChanged();
         responseMessage = null;
 
         form.Id = Guid.NewGuid();
