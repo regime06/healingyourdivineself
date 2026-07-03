@@ -15,9 +15,13 @@ namespace HealingDivineSelf.Services.WorkshopService
         }
         public async Task<ApiResponse<UserWorkshop>> CreateUserWorkshop(UserWorkshop workshops)
         {
+            try
+            {
+
+          
             using var httpClient = new HttpClient();
 
-            _api = "https://localhost:7201/";
+            //_api = "https://localhost:7201/";
             var uri = $"{_api}FreeWorkShops";
 
             var response = await httpClient.PostAsJsonAsync(uri,workshops);
@@ -44,6 +48,15 @@ namespace HealingDivineSelf.Services.WorkshopService
                 Success = false,
                 Message = "No response received from server."
             };
+            }
+            catch (Exception ex)
+            {
+              return  new ApiResponse<UserWorkshop>
+                {
+                    Success = false,
+                    Message = $"No response received from server. -{ex.Message}"
+                };
+            }
         }
 
         public class ApiResponse<T>
